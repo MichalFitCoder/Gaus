@@ -59,34 +59,39 @@ for(int i = 0; i < l_wezlow; i++){
     ur[5] += wezly[i]*wartosci[i];
 }
 
-ur [3] = ur[1];  //porozmiaramy o tym kochanie
+ur [3] = ur[1];
 
 W = ur[0]*ur[4] - ur[1]*ur[3];
 Wa0 = ur[2]*ur[4] - ur[1]*ur[5];
 Wa1 = ur[0]*ur[5] - ur[2]*ur[3];
 
-a0 = Wa0/W; //Nie mam pojecia skad te wzory
+a0 = Wa0/W;
 a1 = Wa1/W;
 
-cout << "funkcja aproksymacyjna ma postac: ";
+cout << "\nfunkcja aproksymacyjna ma postac: ";
 
 if(wybor == 1) cout << "g(x) = " << a1 << "x + " << a0 << endl;
 else if(wybor == 2) cout << "g(x) = " << a1 <<"*1/x + " << a0 << endl;
 else cout << "g(x) = e^" << a1 << "x + e^" << a0 << endl;
 
-
 //NIEPEWNOSCI TYPU A I B:
 double ua, ub;
 
 double y2;
-for(int i = 0; i < wezly.size();i++){
+for(int i = 0; i < wezly.size(); i++){
     y2 += pow(wartosci[i], 2);
 }
 
-ua = sqrt( (wezly.size()/(wezly.size()-2)) * ( ( y2 - (a1 * ur[5]) - (a0 * ur[2]) ) / ((wezly.size() * ur[4]) - pow(ur[1], 2)) ) ); // Prawie napewno dobrze
-ub = ua * sqrt(ur[4]/wezly.size());  // poprawione
+double rob, l, m;
+rob = wezly.size()/(wezly.size() - 2.0);
+l = y2 - (a1*ur[5]) - a0*ur[2];
+double x2 = pow(ur[1], 2);
+m = (wezly.size()*ur[4]) - x2;
 
-cout << "niepewnosc u(a) wynosi: " << ua << endl;
-cout << "niepewnosc u(b) wynosi: " << ub << endl;
+ua = sqrt(rob*l/m);
+ub = ua * sqrt(ur[4]/wezly.size());
+
+cout << "niepewnosc typu a wynosi: " << ua << endl;
+cout << "niepewnosc typu b wynosi: " << ub << endl;
 
 }
