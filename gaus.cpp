@@ -70,9 +70,9 @@ a1 = Wa1/W;
 
 cout << "funkcja aproksymacyjna ma postac: ";
 
-if(wybor == 1) cout << "g(x) = " << a1 << "x + " << a0;
-else if(wybor == 2) cout << "g(x) = " << a1 <<"*1/x + " << a0;
-else cout << "g(x) = e^" << a1 << "x + e^" << a0;
+if(wybor == 1) cout << "g(x) = " << a1 << "x + " << a0 << endl;
+else if(wybor == 2) cout << "g(x) = " << a1 <<"*1/x + " << a0 << endl;
+else cout << "g(x) = e^" << a1 << "x + e^" << a0 << endl;
 
 
 //NIEPEWNOSCI TYPU A I B:
@@ -83,10 +83,10 @@ for(int i = 0; i < wezly.size();i++){
     y2 += pow(wartosci[i], 2);
 }
 
-ua = sqrt((wezly.size()/(wezly.size()-2))*((y2 - a1*ur[5] - a0*ur[2])/(wezly.size()*ur[4] - pow(ur[1], 2))));
-ub = ua - sqrt(ur[4]/wezly.size());
+ua = sqrt( (wezly.size()/(wezly.size()-2)) * ( ( y2 - (a1 * ur[5]) - (a0 * ur[2]) ) / ((wezly.size() * ur[4]) - pow(ur[1], 2)) ) ); // Prawie napewno dobrze
+ub = ua * sqrt(ur[4]/wezly.size());  // poprawione
 
-cout << "niepewnosc typu a wynosi: " << ua << endl;
-cout << "niepewnosc typu b wynosi: " << ub << endl;
+cout << "niepewnosc u(a) wynosi: " << ua << endl;
+cout << "niepewnosc u(b) wynosi: " << ub << endl;
 
 }
