@@ -59,13 +59,13 @@ for(int i = 0; i < l_wezlow; i++){
     ur[5] += wezly[i]*wartosci[i];
 }
 
-ur [3] = ur[1];
+ur [3] = ur[1];  //porozmiaramy o tym kochanie
 
 W = ur[0]*ur[4] - ur[1]*ur[3];
 Wa0 = ur[2]*ur[4] - ur[1]*ur[5];
 Wa1 = ur[0]*ur[5] - ur[2]*ur[3];
 
-a0 = Wa0/W;
+a0 = Wa0/W; //Nie mam pojecia skad te wzory
 a1 = Wa1/W;
 
 cout << "funkcja aproksymacyjna ma postac: ";
